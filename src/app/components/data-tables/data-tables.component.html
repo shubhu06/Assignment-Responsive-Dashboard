@@ -1,0 +1,91 @@
+<main class="contents-section">
+    <h2 class="heading my-5">Doctors</h2>
+    <div class="mid-section my-5">
+        <div class="left-sec">
+            <span>Show</span>
+            <input type="number" name="ent" id="ent" class="form-control" [(ngModel)]="entries">
+            <span>entries</span>
+        </div>
+        <div class="right-sec">
+            <div class="input-group">
+                <input type="text" name="search" id="search" class="form-control">
+                <button class="btn"><i class="bi bi-search"></i></button>
+            </div>
+            <!-- <button class="btn"><i class="bi bi-plus-lg"></i> Add New</button> -->
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <i class="bi bi-plus-lg"></i>Add New
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                
+                <form [formGroup]="saveForm" (submit)="addData()">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Add Data</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                                <div class="mb-3">
+                                    <label  class="form-label">Name</label>
+                                    <input [ngStyle]="{'border-color': saveForm.controls['name'].touched && saveForm.controls['name'].valid ? 'red' : 'green'}" formControlName="name" type="text" class="form-control"
+                                        placeholder="Name">
+                                </div>
+                                <div class="mb-3">
+                                    <label  class="form-label">Batch No</label>
+                                    <input [ngStyle]="{'border-color': saveForm.controls['bNo'].touched && saveForm.controls['bNo'].valid ? 'red' : 'green'}" formControlName="bNo" type="number" class="form-control"
+                                        placeholder="Batch No">
+                                </div>
+                                <div class="mb-3">
+                                    <label  class="form-label">Location</label>
+                                    <input [ngStyle]="{'border-color': saveForm.controls['location'].touched && saveForm.controls['location'].valid ? 'red' : 'green'}" formControlName="location" type="text" class="form-control"
+                                        placeholder="Location">
+                                </div>
+                                <div class="mb-3">
+                                    <label  class="form-label">Experience</label>
+                                    <input [ngStyle]="{'border-color': saveForm.controls['exp'].touched && saveForm.controls['exp'].valid ? 'red' : 'green'}" formControlName="exp" type="text" class="form-control"
+                                        placeholder="Experience">
+                                </div>
+                                <div class="mb-3">
+                                    <label  class="form-label">Contact No</label>
+                                    <input [ngStyle]="{'border-color': saveForm.controls['cNo'].touched && saveForm.controls['cNo'].valid ? 'red' : 'green'}" formControlName="cNo" type="number" class="form-control"
+                                        placeholder="Contact No">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn" style="background-color: var(--primary-color); color: var(--primary-text); font-weight: 700;">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Batch No</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Experience</th>
+                    <th scope="col">Contact No</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of this._state.data">
+                    <th scope="row">{{item.name}}</th>
+                    <td>{{item.bNo}}</td>
+                    <td>{{item.location}}</td>
+                    <td>{{item.exp}}</td>
+                    <td>{{item.cNo}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</main>

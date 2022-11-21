@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+// CSS Reset
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+
+    a{
+        text-decoration: none;
+    }
+}
+
+:root{
+    --primary-color: #00a54f;
+    --avatar-color: #76ff9c;
+    --primary-text: #ffffff;
+    --text-sec-color: #88e3a3;
+    --background-color: #fefaf9;
+    --card-bg-avtar-color: #eaffee;
+}
+
